@@ -1,0 +1,105 @@
+<odoo>
+    <data>
+        <!--        appointment form view-->
+        <record id="hospital_appointment_form" model="ir.ui.view">
+            <field name="name">Appointment Form</field>
+            <field name="model">hospital.appointment</field>
+            <field name="arch" type="xml">
+                <form string="Appointment">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-check">
+                                <field name="active" widget="boolean_button"
+                                       options="{&quot;terminology&quot;: &quot;active&quot;}"/>
+                            </button>
+                        </div>
+
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" default_focus="1" placeholder="Appointment Name"
+                                />
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="patient_id"/>
+                            </group>
+                            <group>
+                                <field name="patient_gender"/>
+                            </group>
+                            <group>
+                                <field name="patient_age"/>
+                            </group>
+                            <group>
+                                <field name="appointment_date"/>
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page string="Additional Information">
+                                <group>
+                                    <field name="notes" placeholder="Appointment notes......"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <!--            appointment tree view-->
+        <record id="hospital_appointment_tree" model="ir.ui.view">
+            <field name="name">Appointment Tree</field>
+            <field name="model">hospital.appointment</field>
+            <field name="arch" type="xml">
+                <tree string="Appointment">
+                    <field name="name"/>
+                    <field name="patient_id"/>
+                    <field name="patient_age"/>
+                    <field name="patient_gender"/>
+                    <field name="appointment_date"/>
+                    <field name="notes"/>
+
+
+                </tree>
+            </field>
+        </record>
+
+        <!--            appointment search view-->
+        <record id="hospital_appointment_search" model="ir.ui.view">
+            <field name="name">Appointment Search</field>
+            <field name="model">hospital.appointment</field>
+            <field name="arch" type="xml">
+                <search string="Search Appointment">
+                    <field name="name"
+                           filter_domain="['|',('name','ilike', self),('active','ilike', self)]"/>
+                    <field name="active"/>
+                </search>
+            </field>
+        </record>
+
+
+        <!--        action of appointment menu-->
+        <record id="appointment_menu_action" model="ir.actions.act_window">
+            <field name="name">Appointment Form</field>
+            <field name="res_model">hospital.appointment</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,search</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Create The First Appointment
+                </p>
+            </field>
+        </record>
+
+
+        <menuitem id="hospital_appointment_menu"
+                  parent="hospital_menu"
+                  name="Appointment"
+                  action="appointment_menu_action"/>
+    </data>
+</odoo>

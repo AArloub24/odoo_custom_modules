@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="student_menu_action_extension" model="ir.actions.act_window">
+        <field name="name">student_extension.form</field>
+        <field name="res_model">student.student</field>
+        <field name="model">student.student</field>
+        <field name="inherit_id" ref="school.view_student_tree"/>
+        <field name="arch" type="xml">
+            <field name="image" widget="image" class="oe_avatar"
+                   options="{&quot;preview_image&quot;: &quot;image_medium&quot;, &quot;size&quot;: [90, 90]}"/>
+
+            <field name="address"/>
+
+        </field>
+    </record>
+
+    <record id="view_student_extension_tree" model="ir.ui.view">
+        <field name="name">student_extension.tree</field>
+        <field name="res_model">student.student</field>
+        <field name="model">student.student</field>
+        <field name="inherit_id" ref="school.view_student_tree"/>
+        <field name="arch" type="xml">
+            <tree string="Student Records">
+
+                <field name="address"/>
+
+            </tree>
+        </field>
+    </record>
+
+
+
+</odoo>
