@@ -21,6 +21,8 @@ class HospitalAppointment(models.Model):
 
     name = fields.Char(String="Appointment ID", required="True", copy=False, readonly=True, index=True,
                        default=lambda self: ('New'), track_visibility="always")
+    doctor_id = fields.Many2one('hospital.doctor', string='Doctor', required=True, track_visibility="always")
+
     patient_id = fields.Many2one('hospital.patient', string='Patient', required=True, track_visibility="always")
     patient_gender = fields.Selection([('male', 'Male'), ('female', 'Female'), ('others', 'Others')], string='Gender',
                                       related="patient_id.patient_gender", track_visibility="always")

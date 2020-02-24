@@ -28,6 +28,9 @@
                                 <field name="patient_gender"/>
                             </group>
                             <group>
+                                <field name="doctor_id"/>
+                            </group>
+                            <group>
                                 <field name="patient_age"/>
                             </group>
                             <group>
@@ -61,6 +64,7 @@
                     <field name="patient_id"/>
                     <field name="patient_age"/>
                     <field name="patient_gender"/>
+                    <field name="doctor_id"/>
                     <field name="appointment_date"/>
                     <field name="notes"/>
 
@@ -78,6 +82,8 @@
                     <field name="name"
                            filter_domain="['|',('name','ilike', self),('active','ilike', self)]"/>
                     <field name="active"/>
+                    <field name="doctor_id"/>
+
                 </search>
             </field>
         </record>

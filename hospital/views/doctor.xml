@@ -2,20 +2,19 @@
     <data>
 
 
-
-
-        <!--        patient form view-->
-        <record id="hospital_patient_form" model="ir.ui.view">
-            <field name="name">Patient Form</field>
-            <field name="model">hospital.patient</field>
+        <!--        doctor form view-->
+        <record id="hospital_doctor_form" model="ir.ui.view">
+            <field name="name">Doctor Form</field>
+            <field name="model">hospital.doctor</field>
             <field name="arch" type="xml">
-                <form string="Patients">
+                <form string="Doctors">
                     <sheet>
                         <div class="oe_button_box" name="button_box">
                             <button name="open_patient_appointment"
                                     type="object" class="oe_stat_button" icon="fa-calendar">
-                                <field  string="Appointment"   name="appointment_count" widget="statinfo"/>
+                                <field string="Appointment" name="appointment_count" widget="statinfo"/>
                             </button>
+
                             <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-check">
                                 <field name="active" widget="boolean_button"
                                        options="{&quot;terminology&quot;: &quot;active&quot;}"/>
@@ -26,30 +25,28 @@
 
                         <div class="oe_title">
                             <h3>
-                                <field name="patient_id_seq"
+                                <field name="doctor_id_seq"
                                 />
                             </h3>
                             <h1>
-                                <field name="name" default_focus="1" placeholder="Patient Name"
+                                <field name="name" default_focus="1" placeholder="Doctor Name"
                                 />
                             </h1>
 
                         </div>
                         <group>
                             <group>
-                                <field name="patient_dob"/>
+                                <field name="doctor_dob"/>
                             </group>
                             <group>
-                                <field name="patient_age"/>
+                                <field name="doctor_age"/>
                             </group>
                             <group>
-                                <field name="patient_gender"/>
+                                <field name="doctor_gender"/>
                             </group>
+                           
                             <group>
-                                <field name="age_group"/>
-                            </group>
-                            <group>
-                                <field name="patient_email" placeholder="email@example.com"/>
+                                <field name="doctor_email" placeholder="email@example.com"/>
                             </group>
                             <group>
                                 <field name="country"/>
@@ -61,12 +58,12 @@
                         <notebook>
                             <page string="Address">
                                 <group>
-                                    <field name="patient_address" placeholder="Address here..."/>
+                                    <field name="doctor_address" placeholder="Address here..."/>
                                 </group>
                             </page>
                             <page string="Additional Information">
                                 <group>
-                                    <field name="notes" placeholder="Patient notes......"/>
+                                    <field name="notes" placeholder="Doctor notes......"/>
                                 </group>
                             </page>
                         </notebook>
@@ -81,35 +78,34 @@
                 </form>
             </field>
         </record>
-        <!--            patient tree view-->
-        <record id="hospital_patient_tree" model="ir.ui.view">
-            <field name="name">Patient Tree</field>
-            <field name="model">hospital.patient</field>
+        <!--            doctor tree view-->
+        <record id="hospital_doctor_tree" model="ir.ui.view">
+            <field name="name">Doctor Tree</field>
+            <field name="model">hospital.doctor</field>
             <field name="arch" type="xml">
-                <tree string="Patients">
-                    <field name="patient_id_seq"/>
+                <tree string="Doctors">
+                    <field name="doctor_id_seq"/>
                     <field name="name"/>
-                    <field name="patient_gender"/>
-                    <field name="patient_age"/>
-                    <field name="patient_dob"/>
-                    <field name="age_group"/>
-                    <field name="patient_email"/>
+                    <field name="doctor_gender"/>
+                    <field name="doctor_age"/>
+                    <field name="doctor_dob"/>
+                    <field name="doctor_email"/>
                     <field name="country"/>
 
                 </tree>
             </field>
         </record>
-        <!--        patient kanban view-->
-        <record id="hospital_patient_kanban" model="ir.ui.view">
-            <field name="name">Patient Kanban</field>
-            <field name="model">hospital.patient</field>
+        <!--        doctor kanban view-->
+        <record id="hospital_doctor_kanban" model="ir.ui.view">
+            <field name="name">Doctor Kanban</field>
+            <field name="model">hospital.doctor</field>
             <field name="arch" type="xml">
                 <kanban class="o_res_partner_kanban">
                     <field name="name"/>
-                    <field name="patient_age"/>
-                    <field name="patient_gender"/>
+                    <field name="doctor_age"/>
+                    <field name="doctor_gender"/>
                     <field name="image"/>
-                    <field name="patient_dob"/>
+                    <field name="doctor_dob"/>
 
                     <templates>
                         <t t-name="kanban-box">
@@ -126,13 +122,13 @@
                                     <ul>
 
                                         <li>
-                                            <field name="patient_gender"/>
+                                            <field name="doctor_gender"/>
                                         </li>
                                         <li>
-                                            <field name="patient_address"/>
+                                            <field name="doctor_address"/>
                                         </li>
                                         <li>
-                                            <field name="patient_email"/>
+                                            <field name="doctor_email"/>
                                         </li>
 
                                     </ul>
@@ -146,17 +142,17 @@
             </field>
         </record>
 
-        <!--            patient search view-->
-        <record id="hospital_patient_search" model="ir.ui.view">
-            <field name="name">Patient Search</field>
-            <field name="model">hospital.patient</field>
+        <!--            Doctor search view-->
+        <record id="hospital_doctor_search" model="ir.ui.view">
+            <field name="name">Doctor Search</field>
+            <field name="model">hospital.doctor</field>
             <field name="arch" type="xml">
-                <search string="Search Patients">
-                    <field name="patient_id"
-                           filter_domain="['|',('name','ilike', self),('patient_id_seq','ilike', self),('active','ilike', self)]"/>
+                <search string="Search Doctors">
+                    <field name="doctor_id"
+                           filter_domain="['|',('name','ilike', self),('doctor_id_seq','ilike', self),('active','ilike', self)]"/>
                     <field name="name"/>
-                    <field name="patient_id_seq"/>
-                    <field name="patient_gender"/>
+                    <field name="doctor_id_seq"/>
+                    <field name="doctor_gender"/>
                     <field name="country"/>
                     <field name="active"/>
 
@@ -166,26 +162,23 @@
         </record>
 
 
-        <!--        action of patients menu-->
-        <record id="patient_menu_action" model="ir.actions.act_window">
-            <field name="name">Patient Form</field>
-            <field name="res_model">hospital.patient</field>
+        <!--        action of doctors menu-->
+        <record id="doctor_menu_action" model="ir.actions.act_window">
+            <field name="name">Doctor Form</field>
+            <field name="res_model">hospital.doctor</field>
             <field name="view_type">form</field>
             <field name="view_mode">kanban,tree,form,search</field>
             <field name="domain">[]</field>
             <field name="help" type="html">
-                <p class="o_view_nocontent_smiling_face">Create The First Patient
+                <p class="o_view_nocontent_smiling_face">Create The First Doctor
                 </p>
             </field>
         </record>
 
-        <menuitem id="hospital_menu"
-                  name="Hospital"
-                  sequence="0"
-                  web_icon="hospital.static/description/icon.png"/>
-        <menuitem id="hospital_patient_menu"
+        <menuitem id="hospital_doctor_menu"
                   parent="hospital_menu"
-                  name="Patient"
-                  action="patient_menu_action"/>
+                  name="Doctor"
+                  action="doctor_menu_action"
+                  sequence="0"/>
     </data>
 </odoo>
