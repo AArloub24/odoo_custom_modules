@@ -6,6 +6,15 @@ from dateutil.relativedelta import relativedelta
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 
+# override class
+# class ResPartnerPatient(models.Model):
+#     _inherit = 'res.partner'
+#
+#     @api.model
+#     def create(self, vals_list):
+#         res = super(ResPartnerPatient, self).create(vals_list)
+#         return res
+
 
 class HospitalPatient(models.Model):
     _name = 'hospital.patient'
@@ -24,7 +33,6 @@ class HospitalPatient(models.Model):
             self.patient_age = relativedelta(d2, d1).years
 
     patient_age = fields.Integer(string='Age', track_visibility="always")
-
     # age checker
     @api.constrains('patient_age')
     def check_age(self):

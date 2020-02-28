@@ -24,10 +24,15 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        'wizards/create_appointment.xml',
         'views/patient.xml',
         'views/doctor.xml',
         'views/appointment.xml',
+        'views/specialization.xml',
         'data/sequence.xml',
+        'reports/patient_card.xml',
+        'reports/report.xml',
+
 
     ],
     # only loaded in demonstration mode

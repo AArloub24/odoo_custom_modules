@@ -10,7 +10,7 @@
                 <form string="Doctors">
                     <sheet>
                         <div class="oe_button_box" name="button_box">
-                            <button name="open_patient_appointment"
+                            <button name="open_doctor_appointment"
                                     type="object" class="oe_stat_button" icon="fa-calendar">
                                 <field string="Appointment" name="appointment_count" widget="statinfo"/>
                             </button>
@@ -44,7 +44,9 @@
                             <group>
                                 <field name="doctor_gender"/>
                             </group>
-                           
+                            <group>
+                                <field name="doctor_fee"/>
+                            </group>
                             <group>
                                 <field name="doctor_email" placeholder="email@example.com"/>
                             </group>
@@ -52,16 +54,27 @@
                                 <field name="country"/>
                             </group>
 
-
                         </group>
 
                         <notebook>
                             <page string="Address">
                                 <group>
                                     <field name="doctor_address" placeholder="Address here..."/>
+
                                 </group>
                             </page>
                             <page string="Additional Information">
+<!--                                <field name="specialization_lines">-->
+<!--                                    <tree editable="bottom">-->
+<!--&lt;!&ndash;                                        <field name="name"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        <field name="subspeciality" />&ndash;&gt;-->
+<!--&lt;!&ndash;                                        <field name="age_range"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        <field name="DT"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        <field name="SI"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        <field name="OT"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        <field name="doctor_id" invisible="1"/>&ndash;&gt;-->
+<!--                                    </tree>-->
+<!--                                </field>-->
                                 <group>
                                     <field name="notes" placeholder="Doctor notes......"/>
                                 </group>
@@ -90,7 +103,9 @@
                     <field name="doctor_age"/>
                     <field name="doctor_dob"/>
                     <field name="doctor_email"/>
+                    <field name="doctor_fee"/>
                     <field name="country"/>
+
 
                 </tree>
             </field>

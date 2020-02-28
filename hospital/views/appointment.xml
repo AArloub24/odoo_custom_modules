@@ -6,6 +6,17 @@
             <field name="model">hospital.appointment</field>
             <field name="arch" type="xml">
                 <form string="Appointment">
+                    <header>
+                        <button name="action_draft" type="object" string="Draft" states="cancel"
+                                class="btn btn-outline-primary"/>
+                        <button name="action_confirm" type="object" string="Confirm" states="draft,done"
+                                class="btn btn-outline-info"/>
+                        <button name="action_done" type="object" string="Done" states="confirm"
+                                class="btn btn-outline-success"/>
+                        <button name="action_cancel" type="object" string="Cancel" states="confirm,done"
+                                class="btn btn-outline-danger"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm,done,assigned"/>
+                    </header>
                     <sheet>
                         <div class="oe_button_box" name="button_box">
                             <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-check">
@@ -31,6 +42,9 @@
                                 <field name="doctor_id"/>
                             </group>
                             <group>
+                                <field name="doctor_fee"/>
+                            </group>
+                            <group>
                                 <field name="patient_age"/>
                             </group>
                             <group>
@@ -39,9 +53,14 @@
                         </group>
 
                         <notebook>
-                            <page string="Additional Information">
+                            <page string="Doctor Prescriptions">
                                 <group>
-                                    <field name="notes" placeholder="Appointment notes......"/>
+                                    <field name="notes" placeholder="Prescriptions......"/>
+                                </group>
+                            </page>
+                            <page string="Pharmacy">
+                                <group>
+                                    <field name="pharmacy_notes" placeholder="Pharmacy notes......"/>
                                 </group>
                             </page>
                         </notebook>
@@ -62,11 +81,12 @@
                 <tree string="Appointment">
                     <field name="name"/>
                     <field name="patient_id"/>
-                    <field name="patient_age"/>
+                    <field name="patient_age" avg="Average of Ages"/>
                     <field name="patient_gender"/>
                     <field name="doctor_id"/>
                     <field name="appointment_date"/>
                     <field name="notes"/>
+                    <field name="doctor_fee" sum="Total of Doctor Fee"/>
 
 
                 </tree>
