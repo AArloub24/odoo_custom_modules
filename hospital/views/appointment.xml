@@ -126,6 +126,12 @@
         <menuitem id="hospital_appointment_menu"
                   parent="hospital_menu"
                   name="Appointment"
-                  action="appointment_menu_action"/>
+        />
+
+        <menuitem id="appointment_menu"
+                  parent="hospital_appointment_menu"
+                  name="Appointment"
+                  action="appointment_menu_action"
+                  sequence="0"/>
     </data>
 </odoo>

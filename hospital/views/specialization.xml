@@ -18,7 +18,7 @@
 
                         <div class="oe_title">
                             <h1>
-                                <field name="specialization_name" default_focus="1" placeholder="Specialization Name"
+                                <field name="name" default_focus="1" placeholder="Specialization Name"
                                 />
                             </h1>
                         </div>
@@ -56,7 +56,7 @@
             <field name="model">hospital.specialization</field>
             <field name="arch" type="xml">
                 <tree string="Specializations">
-                    <field name="specialization_name"/>
+                    <field name="name"/>
                     <field name="sub_speciality"/>
                     <field name="age_range"/>
                     <field name="DT"/>
@@ -82,7 +82,7 @@
 
 
         <menuitem id="hospital_specialization_menu"
-                  parent="hospital_menu"
+                  parent="hospital_doctor_menu"
                   name="Specialization"
                   action="hospital_specialization_submenu"/>
 

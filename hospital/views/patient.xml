@@ -189,5 +189,6 @@
                   parent="hospital_menu"
                   name="Patient"
                   action="patient_menu_action"/>
+
     </data>
 </odoo>

@@ -25,6 +25,7 @@
     'data': [
         'security/ir.model.access.csv',
         'wizards/create_appointment.xml',
+        'wizards/create_specialization.xml',
         'views/patient.xml',
         'views/doctor.xml',
         'views/appointment.xml',

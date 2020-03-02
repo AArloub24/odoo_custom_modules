@@ -64,17 +64,17 @@
                                 </group>
                             </page>
                             <page string="Additional Information">
-<!--                                <field name="specialization_lines">-->
-<!--                                    <tree editable="bottom">-->
-<!--&lt;!&ndash;                                        <field name="name"/>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <field name="subspeciality" />&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <field name="age_range"/>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <field name="DT"/>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <field name="SI"/>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <field name="OT"/>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <field name="doctor_id" invisible="1"/>&ndash;&gt;-->
-<!--                                    </tree>-->
-<!--                                </field>-->
+                                <field name="specialization_lines">
+                                    <tree editable="bottom">
+                                        <field name="name"/>
+                                        <field name="subspeciality"/>
+                                        <field name="age_range"/>
+                                        <field name="DT"/>
+                                        <field name="SI"/>
+                                        <field name="OT"/>
+                                        <field name="doctor_id" invisible="1"/>
+                                    </tree>
+                                </field>
                                 <group>
                                     <field name="notes" placeholder="Doctor notes......"/>
                                 </group>
@@ -192,6 +192,11 @@
 
         <menuitem id="hospital_doctor_menu"
                   parent="hospital_menu"
+                  name="Doctor"
+                  action="doctor_menu_action"
+                  sequence="0"/>
+        <menuitem id="doctor_menu"
+                  parent="hospital_doctor_menu"
                   name="Doctor"
                   action="doctor_menu_action"
                   sequence="0"/>

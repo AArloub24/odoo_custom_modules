@@ -1,11 +1,8 @@
 from odoo import models, fields, api
 
 
-class HospitalSpecialization(models.Model):
-    _name = 'hospital.specialization'
-    _description = 'Specialization Record'
-    _inherit = ['mail.thread', 'mail.activity.mixin']
-    _rec_name = 'name'
+class CreateSpecialization(models.TransientModel):
+    _name = 'create.specialization'
 
     name = fields.Char(String="Specialization", required="True", track_visibility="always")
     sub_speciality = fields.Selection(
@@ -24,4 +21,3 @@ class HospitalSpecialization(models.Model):
     OT = fields.Selection([('both', 'Both'), ('neither', 'Neither'), ('md', 'Multidisciplinary'), ('OB', 'Organ-Based'),
                            ('TB', 'Technique-Based'), ],
                           string='Organ-based or Technique-based Specialty', track_visibility="always")
-    active = fields.Boolean(String="Status", default=True, track_visibility="always")

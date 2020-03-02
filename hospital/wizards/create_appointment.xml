@@ -59,7 +59,10 @@
             <field name="view_mode">form</field>
             <field name="view_id" ref="create_appointment_form"/>
             <field name="target">new</field>
-
         </record>
 
+    <menuitem id="create_appointment_button"
+                  parent="hospital_appointment_menu"
+                  name="Create Appointment"
+                  action="create_appointment_wizard"/>
 </odoo>
